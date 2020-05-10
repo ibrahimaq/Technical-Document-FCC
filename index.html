@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+   <title>Technical Documentation</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="stylesheet.css">
+    
+ 
+</head>
+
+  
+<body>
+<!-- navigation bar -->
+  
+  <nav id="navbar">
+      <header>CSS Documentation</header>
+      
+      <ul>
+        <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+        <li><a href="#Prerequisite" class="nav-link">Prerequisite</a></li>
+        <li><a href="#What_is_CSS" class="nav-link">What is CSS</a></li>
+        <li><a href="#How_CSS_works" class="nav-link">How CSS works</a></li>
+        <li><a href="#Syntax" class="nav-link">Syntax</a></li>
+        <li><a href="#CSS_Selectors" class="nav-link">CSS Selectors</a></li>
+        <li><a href="#References" class="nav-link">References</a></li>
+      </ul>
+
+    
+  </nav>
+  
+  
+ <!--   sections start here -->
+  
+<main id="main-doc">
+  
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>  
+      <article>
+         <p>
+          CSS (Cascading Style Sheets) is used to style
+          and lay out web pages — for example, to alter 
+          the font, color, size, and spacing of your 
+          content, split it into multiple columns, or add
+          animations and other decorative features. This 
+          document provides a gentle beginning to your path
+          towards CSS mastery with the basics of how it 
+          works, what the syntax looks like, and how you
+          can start using it to add styling to HTML.
+        </p>
+    </article>
+  </section>
+  
+  <section class="main-section" id="Prerequisite">
+    <header>Prerequisite</header>  
+      <article>
+        <p>Before starting this module, you should have:</p>
+          <ul>
+            <li>
+              Basic familiarity with using computers, and using the Web
+              passively (i.e.looking at it, consuming the content.)
+            </li>
+            
+            <li>
+              Basic familiarity with HTML, as discussed in the Introduction
+              to HTML module.
+            </li>
+        </ul>
+    </article>
+  </section>
+  
+  <section class="main-section" id="What_is_CSS">
+    <header>What is CSS</header>  
+      <article>
+       
+        
+        <p>
+          CSS is a declarative language that controls how webpages look in the browser. The browser applies CSS style declarations to selected elements to display them properly. A style declaration contains the properties and their values, which determine how a webpage looks.
+
+CSS is one of the three core Web technologies, along with HTML and JavaScript. CSS usually styles HTML elements, but can be also used with other markup languages like SVG or XML.
+
+A CSS rule is a set of properties associated with a selector. Here is an example that makes every HTML paragraph yellow against a black background:</p>
+        
+        <code>
+          /* The selector "p" indicate that all paragraphs in the document will be affected by that rule */
+p {
+  /* The "color" property defines the text color, in this case yellow. */
+  color: yellow;
+
+  /* The "background-color" property defines the background color, in this case black. */
+  background-color: black
+}
+        </code>
+    </article>
+  </section>
+  
+  <section class="main-section" id="How_CSS_works">
+     <header>How CSS works</header>
+       <article>
+         <p>When a browser displays a document, it must
+           combine the document's content with its style
+           information. It processes the document in a
+           number of stages, which we've listed below.
+           Bear in mind that this is a very simplified
+           version of what happens when a browser loads
+           a webpage, and that different browsers will
+           handle the process in different ways. But
+           this is roughly what happens.
+         </p>
+         
+         <ol>
+           <li>The browser loads the HTML (e.g. receives
+                it from the network).
+           </li>
+           <li>It converts the HTML into a DOM (Document
+             Object Model). The DOM represents the document
+             in the computer's memory. The DOM is explained
+             in a bit more detail in the next section.
+           </li>
+           <li>The browser then fetches most of the
+             resources that are linked to by the HTML
+             document, such as embedded images and videos
+             ... and linked CSS! JavaScript is handled a
+             bit later on in the process, and we won't talk
+             about it here to keep things simpler
+           </li>
+           <li>The browser parses the fetched CSS, and sorts
+             the different rules by their selector types
+             into different "buckets", e.g. element, class,
+             ID, and so on. Based on the selectors it finds,
+             it works out which rules should be applied to
+             which nodes in the DOM, and attaches style to
+             them as required (this intermediate step is
+             called a render tree).
+           </li>
+           <li>The render tree is laid out in the structure
+             it should appear in after the rules have been
+             applied to it.
+           </li>
+           <li>The visual display of the page is shown on
+             the screen (this stage is called painting).
+           </li>
+         </ol>
+         
+         
+      </article>
+  </section>
+  
+  <section class="main-section" id="Syntax">
+    <header>Syntax</header>  
+      <article>
+        <p>CSS is a rule-based language — you
+          define rules specifying groups of
+          styles that should be applied to 
+          particular elements or groups of 
+          elements on your web page. For example 
+          "I want the main heading on my page to 
+          be shown as large red text.
+        <br><br>
+
+          The following code shows a very simple 
+          CSS rule that would achieve the styling 
+          described above:
+        </p>
+        
+        <code>h1 {
+          color: red;
+          font-size: 5em;
+          }
+        </code>
+       <br>
+        <br>
+        <p>
+          The rule opens with a selector . This selects
+          the HTML element that we are going to style. In
+          this case we are styling level one headings &lth1&gt.
+        </p>
+        <p>
+          We then have a set of curly braces { }. Inside those will be one or more
+          declarations, which take the form of property and value pairs. Each pair specifies a
+          property of the element(s) we are selecting, then a value that we'd like to give the
+          property.
+        </p>
+        <p>
+          Before the colon, we have the property, and after the colon, the value. CSS
+          properties have different allowable values, depending on which property is being
+          specified. In our example, we have the color property, which can take various color
+          values. We also have the font-size property. This property can take various size
+          units as a value.
+        </p>
+        <p>
+          A CSS stylesheet will contain many such rules, written one after the other.
+        </p>
+        <code>
+            h1 {
+          color: red;
+          font-size: 5em;
+            }
+          p {
+          color: black;
+           }
+        </code>
+        
+       <p>
+          You will find that you quickly learn some values, whereas others you will need to 
+          look up.
+      </p>
+    </article>
+  </section>
+  
+  <section class="main-section" id="CSS_Selectors">
+    <header>CSS Selectors</header>  
+      <article>
+        <h3>CSS Element Selector</h3>
+        <p>
+          The element selector selects HTML elements based on the
+          element name.
+        </p>
+        <p>Here, all &ltp&gt elements on the page will be
+          center-aligned, with a red text color: 
+        </p>
+        
+        <code>p {
+              text-align: center;
+              color: red;
+              }
+        </code>
+        
+        <h3>CSS id Selector</h3>
+        
+        <p>The id selector uses the id attribute of an HTML element
+          to select a specific element. The id of an element is unique
+          within a page, so the id selector is used to select one
+          unique element! To select an element with a specific id,
+          write a hash (#) character, followed by the id of the
+          element.
+        </p>
+        <p>The CSS rule below will be applied to the HTML element with            id="para1":
+        </p>
+        <code>#para1 {
+              text-align: center;
+            color: red;
+              }
+        </code>
+        
+        <h3>CSS class Selector</h3>
+        <p>The class selector selects HTML elements with a specific
+          class attribute.
+          To select elements with a specific class, write a period (.)
+          character, followed by the class name.
+        </p>
+        <p>In this example all HTML elements with class="center" will
+          be red and center-aligned:
+        </p>
+        <code>.center {
+              text-align: center;
+              color: red;
+              }
+        </code>
+        
+        <h3>CSS Universal Selector</h3>
+        <p>The universal selector (*) selects all HTML elements
+            on the page.
+        </p>
+        <p>The CSS rule below will affect every HTML element 
+            on the page:
+        </p>
+        <code>* {
+              text-align: center;
+              color: blue;
+              }
+        </code>
+        
+        <p>You can learn more on how to best utilise CSS selectors to target
+            multiple HTML elements and other efficient ways of styling by
+            visiting the references at the bottom of this document.
+        </p>
+        
+    </article>
+  </section>
+  
+  <section class="main-section" id="References">
+    <header>References</header>
+    
+    <p>All documents on this page are taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">MDN</a> and <a href="https://www.w3schools.com/css/default.asp">W3schools.</a></p>
+    
+  </section>
+  
+</main>
+  
+  
+</body>
+  
+  
+</html>
